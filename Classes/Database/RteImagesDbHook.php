@@ -177,6 +177,8 @@ class RteImagesDbHook extends RteHtmlParser
                             $attribArray['height'] = $magicImage->getProperty('height');
                             $attribArray['src'] = $magicImage->getPublicUrl();
                         }
+
+                        $attribArray['src'] = 't3://file?uid='.$attribArray['data-htmlarea-file-uid'];
                     } elseif (!GeneralUtility::isFirstPartOfStr($absoluteUrl, $siteUrl) && !$this->procOptions['dontFetchExtPictures'] && TYPO3_MODE === 'BE') {
                         // External image from another URL: in that case, fetch image, unless the feature is disabled or we are not in backend mode
                         // Fetch the external image
